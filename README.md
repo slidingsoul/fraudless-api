@@ -1,3 +1,44 @@
+## Getting Started
+
+After cloning or pulling this repository, follow these steps to set up the project:
+
+1. **Install dependencies:**
+   ```
+   composer install
+   ```
+
+2. **Copy the example environment file and configure it:**
+   ```
+   cp .env.example .env
+   ```
+   Edit `.env` to set your database credentials and other environment variables. Ask Budi for the .env DB configuration.
+
+3. **Generate the application key:**
+   ```
+   php artisan key:generate
+   ```
+
+4. **(If using JWT) Generate the JWT secret:**
+   ```
+   php artisan jwt:secret
+   ```
+
+5. **Run database migrations and seeders:**
+   ```
+   php artisan migrate:fresh --seed
+   ```
+
+6. **Serve the application:**
+   ```
+   php artisan serve
+   ```
+
+Now your API should be running at `http://127.0.0.1:8000`.
+
+---
+
+
+
 ## API Documentation
 
 ### Authentication
