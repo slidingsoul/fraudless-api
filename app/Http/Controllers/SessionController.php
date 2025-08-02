@@ -20,4 +20,19 @@ class SessionController extends Controller
 
         return response()->json(['message' => 'Session updated successfully', 'session' => $session]);
     }
+
+    public function getByClass($classId)
+    {
+        $studentId = auth()->guard('api')->user()->StudentId;
+
+        $sessions = \App\Models\Session::where('ClassId', $classId)
+            ->with(['presences' => function ($query) use ($studentId) {
+                $query->where('StudentId', $studentId);
+            }])
+            ->get();
+
+        return response()->json([
+            'sessions' => $sessions
+        ]);
+    }
 }

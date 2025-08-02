@@ -18,4 +18,9 @@ class Session extends Model
         'SessionNumber',
         'Shift',
     ];
+
+    public function presences()
+    {
+        return $this->hasMany(\App\Models\Presence::class, 'SessionId', 'SessionId');
+    }
 }
