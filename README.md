@@ -34,217 +34,52 @@ After cloning or pulling this repository, follow these steps to set up the proje
    ```
 
 Now your API should be running at `http://127.0.0.1:8000`.
-
 ---
 
+## Postman Collection
 
+A Postman collection is included in this repository (`FraudlessAPI.postman_collection.json`). To use it:
 
-## API Documentation
+1. **Import the Collection:**
+   - Open Postman
+   - Click "Import"
+   - Select the `FraudlessAPI.postman_collection.json` file
 
-### Authentication
+2. **Set up Environment Variables:**
+   The collection uses the following variables:
+   - `baseURL`: Default is `http://127.0.0.1:8000`
+   - `sessionId`: ID of the session to update
+   - `sessionDate`: Date for session update
+   - `shift`: Shift number (1-6)
+   - `roomId`: Room ID (e.g., "0213")
+   - `id`: Presence ID for updates
+   - `isInCorrectLocation`: Boolean (0 or 1)
+   - `isInCorrectFace`: Boolean (0 or 1)
+   - `isVerified`: Boolean (0 or 1)
+   - `classId`: Class ID for fetching sessions
+   - `courseId`: Course ID for fetching sessions
 
-#### Login
-**POST** `/api/login`
+3. **Authentication:**
+   - Use the "login" request first to get a JWT token
+   - The token will be needed for all other requests
+   - Default test credentials:
+     ```json
+     {
+       "email": "2602078146",
+       "password": "passwordmahasiswa"
+     }
+     ```
 
-**Request Body:**
-```json
-{
-  "StudentId": "2602078146",
-  "StudentPassword": "passwordmahasiswa"
-}
-```
-
-**Response:**
-```json
-{
-  "access_token": "your_jwt_token",
-  "token_type": "bearer",
-  "expires_in": 3600
-}
-```
-
----
-
-### Sessions
-
-#### Update Session
-**PUT** `/api/sessions/{id}`
-
-**Request Body:**
-```json
-{
-  "SessionDate": "2025-08-01",
-  "Shift": 2,
-  "RoomId": "0311"
-}
-```
-
-**Response:**
-```json
-{
-  "message": "Session updated successfully",
-  "session": {
-    "SessionId": 1,
-    "ClassId": 1,
-    "SessionDate": "2025-08-01",
-    "RoomId": "0311",
-    "SessionNumber": 1,
-    "Shift": 2,
-    "created_at": "...",
-    "updated_at": "..."
-  }
-}
-```
-
-#### Get Sessions by Class
-**GET** `/api/sessions/class/{classId}`
-
-**Response:**
-```json
-{
-  "sessions": [
-    {
-      "SessionId": 1,
-      "ClassId": 1,
-      "SessionDate": "2025-08-01",
-      "RoomId": "0311",
-      "SessionNumber": 1,
-      "Shift": 2,
-      "presences": [
-        {
-          "PresenceId": 1,
-          "SessionId": 1,
-          "StudentId": "2602078146",
-          "IsInCorrectLocation": 1,
-          "IsCorrectFace": 1,
-          "IsVerified": 1,
-          "created_at": "...",
-          "updated_at": "..."
-        }
-      ]
-    }
-  ]
-}
-```
+4. **Available Endpoints:**
+   - `POST /api/login` - Authentication
+   - `POST /api/logout` - End session
+   - `GET /api/me` - Get current user info
+   - `PUT /api/sessions/{id}` - Update session details
+   - `PUT /api/presence/{id}/location` - Update presence location
+   - `PUT /api/presence/{id}/face` - Update face verification
+   - `PUT /api/presence/{id}/verified` - Update verification status
+   - `GET /api/sessions/class/{classId}` - Get sessions by class
+   - `GET /api/my-classes` - Get enrolled classes
+   - `GET /api/courses/{courseId}/sessions` - Get sessions by course
 
 ---
-
-### Presence
-
-#### Update Location
-**PUT** `/api/presence/{id}/location`
-
-**Request Body:**
-```json
-{
-  "IsInCorrectLocation": 1
-}
-```
-
-**Response:**
-```json
-{
-  "message": "Verified updated",
-  "presence": {
-    "PresenceId": 1,
-    "SessionId": 1,
-    "StudentId": "2602078146",
-    "IsInCorrectLocation": 1,
-    "IsCorrectFace": 1,
-    "IsVerified": 1,
-    "created_at": "...",
-    "updated_at": "..."
-  }
-}
-```
-
-#### Update Face
-**PUT** `/api/presence/{id}/face`
-
-**Request Body:**
-```json
-{
-  "IsCorrectFace": 0
-}
-```
-
-**Response:**  
-_Same as above, with updated `IsCorrectFace` value._
-
-#### Update Verified
-**PUT** `/api/presence/{id}/verified`
-
-**Request Body:**
-```json
-{
-  "IsVerified": 1
-}
-```
-
-**Response:**  
-_Same as above, with updated `IsVerified` value._
-
----
-
-### Classes
-
-#### Get Enrolled Classes
-**GET** `/api/my-classes`
-
-**Response:**
-```json
-{
-  "classes": [
-    {
-      "ClassId": 1,
-      "LecturerId": "DW211",
-      "CourseId": "COMP6360004",
-      "ClassCode": "BC20",
-      "LecturerRoleId": 2,
-      "ClassYear": 2022,
-      "Semester": 1,
-      "NumberOfSession": 13,
-      "CourseCategory": "LAB",
-      "created_at": "...",
-      "updated_at": "..."
-    }
-    // ... more classes
-  ]
-}
-```
-
----
-
-### Courses
-
-#### Get Sessions and Presence by Course
-**GET** `/api/courses/{courseId}/sessions`
-
-**Response:**
-```json
-{
-  "sessions": [
-    {
-      "SessionId": 1,
-      "ClassId": 1,
-      "SessionDate": "2025-08-01",
-      "RoomId": "0311",
-      "SessionNumber": 1,
-      "Shift": 2,
-      "presences": [
-        {
-          "PresenceId": 1,
-          "SessionId": 1,
-          "StudentId": "2602078146",
-          "IsInCorrectLocation": 1,
-          "IsCorrectFace": 1,
-          "IsVerified": 1,
-          "created_at": "...",
-          "updated_at": "..."
-        }
-      ]
-    }
-    // ... more sessions
-  ]
-}
-```

@@ -1,0 +1,343 @@
+{
+	"info": {
+		"_postman_id": "3aa210de-9a02-4fba-b519-b734e8442f02",
+		"name": "FraudlessAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41741017"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"daniel.budiharto@binus.ac.id\",\r\n  \"password\": \"passwordmahasiswa\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/login",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzUzMjg2Nzg0LCJleHAiOjE3NTMyOTAzODQsIm5iZiI6MTc1MzI4Njc4NCwianRpIjoibkwyMTVwY2hKd01DdnJ2ZCIsInN1YiI6IjI2MDIwNzgxNDYiLCJwcnYiOiI5YzQyOWU2YTYwY2Q1Mjg1NDczZjJjOGJjNzAxZWMwOTQ4ZGY0ZDhjIn0.ccHXgcCw_qEwQkMdrezgH4igLkSzxjWRo0_x3CPyQRA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/logout",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "me",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzUzMjg2Nzg0LCJleHAiOjE3NTMyOTAzODQsIm5iZiI6MTc1MzI4Njc4NCwianRpIjoibkwyMTVwY2hKd01DdnJ2ZCIsInN1YiI6IjI2MDIwNzgxNDYiLCJwcnYiOiI5YzQyOWU2YTYwY2Q1Mjg1NDczZjJjOGJjNzAxZWMwOTQ4ZGY0ZDhjIn0.ccHXgcCw_qEwQkMdrezgH4igLkSzxjWRo0_x3CPyQRA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/me",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit_session",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzUzNjMxNjM4LCJleHAiOjE3NTM2MzUyMzgsIm5iZiI6MTc1MzYzMTYzOCwianRpIjoiWG9PTHpTVmh0TFByZ0FTeSIsInN1YiI6IjI2MDIwNzgxNDYiLCJwcnYiOiI5YzQyOWU2YTYwY2Q1Mjg1NDczZjJjOGJjNzAxZWMwOTQ4ZGY0ZDhjIn0.flWYmewk2B53DzDYbxDRA3PCrL_CYIJTdTmIALa2dKM",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"SessionDate\": {{sessionDate}},\r\n  \"Shift\": {{shift}},\r\n  \"RoomId\": {{roomId}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/sessions/{{sessionId}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"sessions",
+						"{{sessionId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit_presence_location",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzUzNjMyMzA3LCJleHAiOjE3NTM2MzU5MDcsIm5iZiI6MTc1MzYzMjMwNywianRpIjoiQjVJMjVvaGlhd3JZQ1Q4VSIsInN1YiI6IjI2MDIwNzgxNDYiLCJwcnYiOiI5YzQyOWU2YTYwY2Q1Mjg1NDczZjJjOGJjNzAxZWMwOTQ4ZGY0ZDhjIn0.rOKVYopCGCP5RlTWRzzx91BYk6ceL2-OTmgOZsTTaF0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"IsInCorrectLocation\": {{isInCorrectLocation}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/presence/{{id}}/location",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"presence",
+						"{{id}}",
+						"location"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit_presence_face",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzUzNjMyMzA3LCJleHAiOjE3NTM2MzU5MDcsIm5iZiI6MTc1MzYzMjMwNywianRpIjoiQjVJMjVvaGlhd3JZQ1Q4VSIsInN1YiI6IjI2MDIwNzgxNDYiLCJwcnYiOiI5YzQyOWU2YTYwY2Q1Mjg1NDczZjJjOGJjNzAxZWMwOTQ4ZGY0ZDhjIn0.rOKVYopCGCP5RlTWRzzx91BYk6ceL2-OTmgOZsTTaF0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"IsCorrectFace\": {{isInCorrectFace}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/presence/{{id}}/face",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"presence",
+						"{{id}}",
+						"face"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit_presence_verification",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzUzNjMyMzA3LCJleHAiOjE3NTM2MzU5MDcsIm5iZiI6MTc1MzYzMjMwNywianRpIjoiQjVJMjVvaGlhd3JZQ1Q4VSIsInN1YiI6IjI2MDIwNzgxNDYiLCJwcnYiOiI5YzQyOWU2YTYwY2Q1Mjg1NDczZjJjOGJjNzAxZWMwOTQ4ZGY0ZDhjIn0.rOKVYopCGCP5RlTWRzzx91BYk6ceL2-OTmgOZsTTaF0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"IsVerified\": {{isVerified}}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}/api/presence/{{id}}/verified",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"presence",
+						"{{id}}",
+						"verified"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "session_by_class",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzU0MDY2MzEyLCJleHAiOjE3NTQwNjk5MTIsIm5iZiI6MTc1NDA2NjMxMiwianRpIjoiWkR1YU8wcGpkN3l3OFltRiIsInN1YiI6IjI2MDIwNzgxNDYiLCJwcnYiOiI5YzQyOWU2YTYwY2Q1Mjg1NDczZjJjOGJjNzAxZWMwOTQ4ZGY0ZDhjIn0.jpA67pN4d4ZTPPYtLHI_JHlV4qeOgYQO24Wfq4pOlVA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/sessions/class/{{classId}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"sessions",
+						"class",
+						"{{classId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "my_classes",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzUzODkyNTUyLCJleHAiOjE3NTM4OTYxNTMsIm5iZiI6MTc1Mzg5MjU1MywianRpIjoiTHpLRndpNmZRWXB6czQ4MiIsInN1YiI6IjI2MDIwNzgxNDYiLCJwcnYiOiI5YzQyOWU2YTYwY2Q1Mjg1NDczZjJjOGJjNzAxZWMwOTQ4ZGY0ZDhjIn0.DwCV2QjSFAMb20Fk6vNyFMbK1V4PAk9HGbcmK60Ii9E",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/my-classes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"my-classes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "session_by_course",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzU0MDY2NjUyLCJleHAiOjE3NTQwNzAyNTIsIm5iZiI6MTc1NDA2NjY1MiwianRpIjoidkhKSFdNb0RuNFlrUTZiRiIsInN1YiI6IjI2MDIwNzgxNDYiLCJwcnYiOiI5YzQyOWU2YTYwY2Q1Mjg1NDczZjJjOGJjNzAxZWMwOTQ4ZGY0ZDhjIn0.64-FHeYQcPqjhfqIWZ0bT7XFwpD6kapBT1qf5SoVzE4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/courses/{{courseId}}/sessions",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"courses",
+						"{{courseId}}",
+						"sessions"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://127.0.0.1:8000",
+			"type": "default"
+		}
+	]
+}
