@@ -35,4 +35,15 @@ class SessionController extends Controller
             'sessions' => $sessions
         ]);
     }
+
+    public function getByDate(Request $request)
+    {
+        $date = $request->query('date', now()->toDateString());
+
+        $sessions = Session::whereDate('SessionDate', $date)->get();
+
+        return response()->json([
+            'sessions' => $sessions
+        ]);
+    }
 }

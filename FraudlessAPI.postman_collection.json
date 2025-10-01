@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "3aa210de-9a02-4fba-b519-b734e8442f02",
+		"_postman_id": "5ec973ff-b0b5-4c2b-9477-25598f6913fc",
 		"name": "FraudlessAPI",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "41741017"
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "33196930"
 	},
 	"item": [
 		{
@@ -20,16 +20,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{baseURL}}/api/login",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"api",
-						"login"
-					]
-				}
+				"url": "{{baseURL}}/api/login"
 			},
 			"response": []
 		},
@@ -38,26 +29,13 @@
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzUzMjg2Nzg0LCJleHAiOjE3NTMyOTAzODQsIm5iZiI6MTc1MzI4Njc4NCwianRpIjoibkwyMTVwY2hKd01DdnJ2ZCIsInN1YiI6IjI2MDIwNzgxNDYiLCJwcnYiOiI5YzQyOWU2YTYwY2Q1Mjg1NDczZjJjOGJjNzAxZWMwOTQ4ZGY0ZDhjIn0.ccHXgcCw_qEwQkMdrezgH4igLkSzxjWRo0_x3CPyQRA",
-							"type": "string"
-						}
-					]
+					"bearer": {
+						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzUzMjg2Nzg0LCJleHAiOjE3NTMyOTAzODQsIm5iZiI6MTc1MzI4Njc4NCwianRpIjoibkwyMTVwY2hKd01DdnJ2ZCIsInN1YiI6IjI2MDIwNzgxNDYiLCJwcnYiOiI5YzQyOWU2YTYwY2Q1Mjg1NDczZjJjOGJjNzAxZWMwOTQ4ZGY0ZDhjIn0.ccHXgcCw_qEwQkMdrezgH4igLkSzxjWRo0_x3CPyQRA"
+					}
 				},
 				"method": "POST",
 				"header": [],
-				"url": {
-					"raw": "{{baseURL}}/api/logout",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"api",
-						"logout"
-					]
-				}
+				"url": "{{baseURL}}/api/logout"
 			},
 			"response": []
 		},
@@ -66,26 +44,13 @@
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzUzMjg2Nzg0LCJleHAiOjE3NTMyOTAzODQsIm5iZiI6MTc1MzI4Njc4NCwianRpIjoibkwyMTVwY2hKd01DdnJ2ZCIsInN1YiI6IjI2MDIwNzgxNDYiLCJwcnYiOiI5YzQyOWU2YTYwY2Q1Mjg1NDczZjJjOGJjNzAxZWMwOTQ4ZGY0ZDhjIn0.ccHXgcCw_qEwQkMdrezgH4igLkSzxjWRo0_x3CPyQRA",
-							"type": "string"
-						}
-					]
+					"bearer": {
+						"token": "{{jwtToken}}"
+					}
 				},
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "{{baseURL}}/api/me",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"api",
-						"me"
-					]
-				}
+				"url": "{{baseURL}}/api/me"
 			},
 			"response": []
 		},
@@ -94,13 +59,9 @@
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzUzNjMxNjM4LCJleHAiOjE3NTM2MzUyMzgsIm5iZiI6MTc1MzYzMTYzOCwianRpIjoiWG9PTHpTVmh0TFByZ0FTeSIsInN1YiI6IjI2MDIwNzgxNDYiLCJwcnYiOiI5YzQyOWU2YTYwY2Q1Mjg1NDczZjJjOGJjNzAxZWMwOTQ4ZGY0ZDhjIn0.flWYmewk2B53DzDYbxDRA3PCrL_CYIJTdTmIALa2dKM",
-							"type": "string"
-						}
-					]
+					"bearer": {
+						"token": "{{jwtToken}}"
+					}
 				},
 				"method": "PUT",
 				"header": [],
@@ -113,17 +74,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{baseURL}}/api/sessions/{{sessionId}}",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"api",
-						"sessions",
-						"{{sessionId}}"
-					]
-				}
+				"url": "{{baseURL}}/api/sessions/{{sessionId}}"
 			},
 			"response": []
 		},
@@ -132,13 +83,9 @@
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzUzNjMyMzA3LCJleHAiOjE3NTM2MzU5MDcsIm5iZiI6MTc1MzYzMjMwNywianRpIjoiQjVJMjVvaGlhd3JZQ1Q4VSIsInN1YiI6IjI2MDIwNzgxNDYiLCJwcnYiOiI5YzQyOWU2YTYwY2Q1Mjg1NDczZjJjOGJjNzAxZWMwOTQ4ZGY0ZDhjIn0.rOKVYopCGCP5RlTWRzzx91BYk6ceL2-OTmgOZsTTaF0",
-							"type": "string"
-						}
-					]
+					"bearer": {
+						"token": "{{jwtToken}}"
+					}
 				},
 				"method": "PUT",
 				"header": [],
@@ -151,18 +98,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{baseURL}}/api/presence/{{id}}/location",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"api",
-						"presence",
-						"{{id}}",
-						"location"
-					]
-				}
+				"url": "{{baseURL}}/api/presence/{{id}}/location"
 			},
 			"response": []
 		},
@@ -171,13 +107,9 @@
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzUzNjMyMzA3LCJleHAiOjE3NTM2MzU5MDcsIm5iZiI6MTc1MzYzMjMwNywianRpIjoiQjVJMjVvaGlhd3JZQ1Q4VSIsInN1YiI6IjI2MDIwNzgxNDYiLCJwcnYiOiI5YzQyOWU2YTYwY2Q1Mjg1NDczZjJjOGJjNzAxZWMwOTQ4ZGY0ZDhjIn0.rOKVYopCGCP5RlTWRzzx91BYk6ceL2-OTmgOZsTTaF0",
-							"type": "string"
-						}
-					]
+					"bearer": {
+						"token": "{{jwtToken}}"
+					}
 				},
 				"method": "PUT",
 				"header": [],
@@ -190,18 +122,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{baseURL}}/api/presence/{{id}}/face",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"api",
-						"presence",
-						"{{id}}",
-						"face"
-					]
-				}
+				"url": "{{baseURL}}/api/presence/{{id}}/face"
 			},
 			"response": []
 		},
@@ -210,13 +131,9 @@
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzUzNjMyMzA3LCJleHAiOjE3NTM2MzU5MDcsIm5iZiI6MTc1MzYzMjMwNywianRpIjoiQjVJMjVvaGlhd3JZQ1Q4VSIsInN1YiI6IjI2MDIwNzgxNDYiLCJwcnYiOiI5YzQyOWU2YTYwY2Q1Mjg1NDczZjJjOGJjNzAxZWMwOTQ4ZGY0ZDhjIn0.rOKVYopCGCP5RlTWRzzx91BYk6ceL2-OTmgOZsTTaF0",
-							"type": "string"
-						}
-					]
+					"bearer": {
+						"token": "{{jwtToken}}"
+					}
 				},
 				"method": "PUT",
 				"header": [],
@@ -229,18 +146,7 @@
 						}
 					}
 				},
-				"url": {
-					"raw": "{{baseURL}}/api/presence/{{id}}/verified",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"api",
-						"presence",
-						"{{id}}",
-						"verified"
-					]
-				}
+				"url": "{{baseURL}}/api/presence/{{id}}/verified"
 			},
 			"response": []
 		},
@@ -249,28 +155,13 @@
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzU0MDY2MzEyLCJleHAiOjE3NTQwNjk5MTIsIm5iZiI6MTc1NDA2NjMxMiwianRpIjoiWkR1YU8wcGpkN3l3OFltRiIsInN1YiI6IjI2MDIwNzgxNDYiLCJwcnYiOiI5YzQyOWU2YTYwY2Q1Mjg1NDczZjJjOGJjNzAxZWMwOTQ4ZGY0ZDhjIn0.jpA67pN4d4ZTPPYtLHI_JHlV4qeOgYQO24Wfq4pOlVA",
-							"type": "string"
-						}
-					]
+					"bearer": {
+						"token": "{{jwtToken}}"
+					}
 				},
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "{{baseURL}}/api/sessions/class/{{classId}}",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"api",
-						"sessions",
-						"class",
-						"{{classId}}"
-					]
-				}
+				"url": "{{baseURL}}/api/sessions/class/{{classId}}"
 			},
 			"response": []
 		},
@@ -279,26 +170,13 @@
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzUzODkyNTUyLCJleHAiOjE3NTM4OTYxNTMsIm5iZiI6MTc1Mzg5MjU1MywianRpIjoiTHpLRndpNmZRWXB6czQ4MiIsInN1YiI6IjI2MDIwNzgxNDYiLCJwcnYiOiI5YzQyOWU2YTYwY2Q1Mjg1NDczZjJjOGJjNzAxZWMwOTQ4ZGY0ZDhjIn0.DwCV2QjSFAMb20Fk6vNyFMbK1V4PAk9HGbcmK60Ii9E",
-							"type": "string"
-						}
-					]
+					"bearer": {
+						"token": "{{jwtToken}}"
+					}
 				},
 				"method": "GET",
 				"header": [],
-				"url": {
-					"raw": "{{baseURL}}/api/my-classes",
-					"host": [
-						"{{baseURL}}"
-					],
-					"path": [
-						"api",
-						"my-classes"
-					]
-				}
+				"url": "{{baseURL}}/api/my-classes"
 			},
 			"response": []
 		},
@@ -307,26 +185,157 @@
 			"request": {
 				"auth": {
 					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzU0MDY2NjUyLCJleHAiOjE3NTQwNzAyNTIsIm5iZiI6MTc1NDA2NjY1MiwianRpIjoidkhKSFdNb0RuNFlrUTZiRiIsInN1YiI6IjI2MDIwNzgxNDYiLCJwcnYiOiI5YzQyOWU2YTYwY2Q1Mjg1NDczZjJjOGJjNzAxZWMwOTQ4ZGY0ZDhjIn0.64-FHeYQcPqjhfqIWZ0bT7XFwpD6kapBT1qf5SoVzE4",
-							"type": "string"
-						}
-					]
+					"bearer": {
+						"token": "{{jwtToken}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{baseURL}}/api/courses/{{courseId}}/sessions"
+			},
+			"response": []
+		},
+		{
+			"name": "ping",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{jwtToken}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{baseURL}}/api/ping"
+			},
+			"response": []
+		},
+		{
+			"name": "test_db",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{jwtToken}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{baseURL}}/api/db-test"
+			},
+			"response": []
+		},
+		{
+			"name": "room",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{jwtToken}}"
+					}
 				},
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseURL}}/api/courses/{{courseId}}/sessions",
+					"raw": "{{baseURL}}/api/room?roomid={{roomId}}",
 					"host": [
 						"{{baseURL}}"
 					],
 					"path": [
 						"api",
-						"courses",
-						"{{courseId}}",
-						"sessions"
+						"room"
+					],
+					"query": [
+						{
+							"key": "roomid",
+							"value": "{{roomId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "lookups",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{jwtToken}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/lookups/by-category?lookupcategoryname={{lookupcategoryname}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"lookups",
+						"by-category"
+					],
+					"query": [
+						{
+							"key": "lookupcategoryname",
+							"value": "{{lookupcategoryname}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit_lookups",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{jwtToken}}"
+					}
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"lookupcode\": \"BML02\",\r\n  \"lookupvalue\": \"-7.9675112.6326\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseURL}}/api/lookups"
+			},
+			"response": []
+		},
+		{
+			"name": "session_by_date",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{jwtToken}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/sessions/by-date?date={{date}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"sessions",
+						"by-date"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "{{date}}"
+						}
 					]
 				}
 			},
@@ -337,6 +346,46 @@
 		{
 			"key": "baseURL",
 			"value": "http://127.0.0.1:8000",
+			"type": "default"
+		},
+		{
+			"key": "courseId",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "classId",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "id",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "sessionId",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "roomId",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "lookupcategoryname",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "date",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "jwtToken",
+			"value": "",
 			"type": "default"
 		}
 	]

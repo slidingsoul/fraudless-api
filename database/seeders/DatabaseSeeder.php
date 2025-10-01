@@ -26,6 +26,8 @@ class DatabaseSeeder extends Seeder
         EnrollmentSeeder::class,
         ClassSessionSeeder::class,
         PresenceSeeder::class,
+        LookupCategorySeeder::class,
+        LookupSeeder::class,
     ]);
     }
 }
