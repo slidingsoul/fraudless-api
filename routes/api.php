@@ -44,3 +44,4 @@ Route::middleware('auth.jwt')->get('/lookups/by-category', [LookupController::cl
 Route::middleware('auth.jwt')->get('/auth/check-token', function () {
     return response()->json(['valid' => true]);
 });
+Route::middleware('auth.jwt')->get('/sessions/by-year-semester', [SessionController::class, 'getSessionsByYearSemester']);

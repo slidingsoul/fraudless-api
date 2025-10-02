@@ -376,6 +376,41 @@
 				"url": "{{baseURL}}/api/auth/check-token"
 			},
 			"response": []
+		},
+		{
+			"name": "sessions_by_year_semester",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{jwtToken}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}/api/sessions/by-year-semester?year={{year}}&semester={{semester}}",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"sessions",
+						"by-year-semester"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "{{year}}"
+						},
+						{
+							"key": "semester",
+							"value": "{{semester}}"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"variable": [
