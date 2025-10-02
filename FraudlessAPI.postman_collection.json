@@ -30,7 +30,7 @@
 				"auth": {
 					"type": "bearer",
 					"bearer": {
-						"token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzUzMjg2Nzg0LCJleHAiOjE3NTMyOTAzODQsIm5iZiI6MTc1MzI4Njc4NCwianRpIjoibkwyMTVwY2hKd01DdnJ2ZCIsInN1YiI6IjI2MDIwNzgxNDYiLCJwcnYiOiI5YzQyOWU2YTYwY2Q1Mjg1NDczZjJjOGJjNzAxZWMwOTQ4ZGY0ZDhjIn0.ccHXgcCw_qEwQkMdrezgH4igLkSzxjWRo0_x3CPyQRA"
+						"token": "{{jwtToken}}"
 					}
 				},
 				"method": "POST",
@@ -176,7 +176,28 @@
 				},
 				"method": "GET",
 				"header": [],
-				"url": "{{baseURL}}/api/my-classes"
+				"url": {
+					"raw": "{{baseURL}}/api/my-classes",
+					"host": [
+						"{{baseURL}}"
+					],
+					"path": [
+						"api",
+						"my-classes"
+					],
+					"query": [
+						{
+							"key": "year",
+							"value": "{{year}}",
+							"disabled": true
+						},
+						{
+							"key": "semester",
+							"value": "{{semester}}",
+							"disabled": true
+						}
+					]
+				}
 			},
 			"response": []
 		},
@@ -338,6 +359,21 @@
 						}
 					]
 				}
+			},
+			"response": []
+		},
+		{
+			"name": "check-token",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{jwtToken}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": "{{baseURL}}/api/auth/check-token"
 			},
 			"response": []
 		}

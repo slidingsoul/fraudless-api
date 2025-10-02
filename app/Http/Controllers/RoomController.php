@@ -27,7 +27,7 @@ class RoomController extends Controller
             }
         } else {
             $rooms = DB::table('rooms')->select('RoomId', 'RoomCode')->get();
-            return response()->json($rooms);
-        }
+            return response()->json([ 'rooms' =>  $rooms]);
+        } 
     }
 }
