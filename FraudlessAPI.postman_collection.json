@@ -202,21 +202,6 @@
 			"response": []
 		},
 		{
-			"name": "session_by_course",
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": {
-						"token": "{{jwtToken}}"
-					}
-				},
-				"method": "GET",
-				"header": [],
-				"url": "{{baseURL}}/api/courses/{{courseId}}/sessions"
-			},
-			"response": []
-		},
-		{
 			"name": "ping",
 			"request": {
 				"auth": {
@@ -389,7 +374,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseURL}}/api/sessions/by-year-semester?year={{year}}&semester={{semester}}",
+					"raw": "{{baseURL}}/api/sessions/by-year-semester",
 					"host": [
 						"{{baseURL}}"
 					],
@@ -401,11 +386,13 @@
 					"query": [
 						{
 							"key": "year",
-							"value": "{{year}}"
+							"value": "{{year}}",
+							"disabled": true
 						},
 						{
 							"key": "semester",
-							"value": "{{semester}}"
+							"value": "{{semester}}",
+							"disabled": true
 						}
 					]
 				}
