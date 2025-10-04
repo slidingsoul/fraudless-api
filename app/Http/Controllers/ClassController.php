@@ -36,7 +36,7 @@ class ClassController extends Controller
                 $join->on('classes.CourseId', '=', 'courses.CourseId')
                      ->on('classes.CourseCategory', '=', 'courses.CourseCategory');
             })
-            ->select('classes.*', 'lecturers.LecturerFullName', 'courses.CourseName')
+            ->select('classes.*', 'lecturers.LecturerFullName', 'courses.CourseName', 'courses.Credit')
             ->get();
 
         return response()->json(['classes' => $classes]);
