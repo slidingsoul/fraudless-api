@@ -26,6 +26,21 @@ class ClassSessionSeeder extends Seeder
             ['ClassId' => 4, 'NumberOfSession' => 13],
             ['ClassId' => 5, 'NumberOfSession' => 26],
             ['ClassId' => 6, 'NumberOfSession' => 13],
+            ['ClassId' => 7, 'NumberOfSession' => 13],
+            ['ClassId' => 8, 'NumberOfSession' => 13],
+            ['ClassId' => 9, 'NumberOfSession' => 12],
+            ['ClassId' => 10, 'NumberOfSession' => 6],
+            ['ClassId' => 11, 'NumberOfSession' => 6],
+            ['ClassId' => 12, 'NumberOfSession' => 26],
+            ['ClassId' => 13, 'NumberOfSession' => 13],
+            ['ClassId' => 14, 'NumberOfSession' => 26],
+            ['ClassId' => 15, 'NumberOfSession' => 13],
+            ['ClassId' => 16, 'NumberOfSession' => 13],
+            ['ClassId' => 17, 'NumberOfSession' => 13],
+            ['ClassId' => 18, 'NumberOfSession' => 6],
+            ['ClassId' => 19, 'NumberOfSession' => 13],
+            ['ClassId' => 20, 'NumberOfSession' => 13],
+            ['ClassId' => 21, 'NumberOfSession' => 13],
         ];
 
         $sessions = [];

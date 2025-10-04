@@ -346,6 +346,32 @@ class CourseSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+
+            # Semester 7
+            [
+                'CourseId' => 'COMP6426001',
+                'CourseName' => 'Industrial Experience in Information Technology',
+                'CourseCategory' => 'LEC', 
+                'Credit' => 8,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'CourseId' => 'COMP6762001',
+                'CourseName' => 'Information Technology Practice in Industrial Experience',
+                'CourseCategory' => 'LEC',
+                'Credit' => 8,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'CourseId' => 'COMP6514001',
+                'CourseName' => 'EES in Information Technology Industry 4',
+                'CourseCategory' => 'LEC',
+                'Credit' => 4,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]
         ]);
     }
 }
