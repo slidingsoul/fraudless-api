@@ -32,7 +32,11 @@ class ClassController extends Controller
         // Join dengan tabel lecturers untuk ambil nama dosen
         $classes = $query
             ->leftJoin('lecturers', 'classes.LecturerId', '=', 'lecturers.LecturerId')
-            ->select('classes.*', 'lecturers.LecturerFullName')
+            ->leftJoin('courses', function ($join) {
+                $join->on('classes.CourseId', '=', 'courses.CourseId')
+                     ->on('classes.CourseCategory', '=', 'courses.CourseCategory');
+            })
+            ->select('classes.*', 'lecturers.LecturerFullName', 'courses.CourseName')
             ->get();
 
         return response()->json(['classes' => $classes]);
