@@ -14,13 +14,26 @@ class SessionController extends Controller
     {
         $studentId = auth()->guard('api')->user()->StudentId;
 
+        // Ambil info kelas beserta dosen dan course
+        $class = ClassModel::leftJoin('lecturers', 'classes.LecturerId', '=', 'lecturers.LecturerId')
+            ->leftJoin('courses', function ($join) {
+                $join->on('classes.CourseId', '=', 'courses.CourseId')
+                    ->on('classes.CourseCategory', '=', 'courses.CourseCategory');
+            })
+            ->select('classes.*', 'lecturers.LecturerFullName', 'courses.CourseName', 'courses.Credit')
+            ->where('classes.ClassId', $classId)
+            ->first();
+
+        if (!$class) {
+            return response()->json(['error' => 'Class not found'], 404);
+        }
+
         $sessions = Session::where('ClassId', $classId)
             ->with(['presences' => function ($query) use ($studentId) {
                 $query->where('StudentId', $studentId);
             }])
             ->get();
 
-        // Ambil info shift untuk setiap session
         foreach ($sessions as $session) {
             $shift = DB::table('shifts')->where('Shift', $session->Shift)->first();
             $session->shift_start = $shift ? $shift->TimeStart : null;
@@ -28,6 +41,7 @@ class SessionController extends Controller
         }
 
         return response()->json([
+            'class' => $class,
             'sessions' => $sessions
         ]);
     }
