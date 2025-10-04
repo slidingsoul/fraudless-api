@@ -73,7 +73,15 @@ class SessionController extends Controller
             }
         }
 
-        $classes = $classQuery->get();
+        // Join dengan lecturers dan courses
+        $classes = $classQuery
+            ->leftJoin('lecturers', 'classes.LecturerId', '=', 'lecturers.LecturerId')
+            ->leftJoin('courses', function ($join) {
+                $join->on('classes.CourseId', '=', 'courses.CourseId')
+                    ->on('classes.CourseCategory', '=', 'courses.CourseCategory');
+            })
+            ->select('classes.*', 'lecturers.LecturerFullName', 'courses.CourseName')
+            ->get();
 
         $result = [];
         foreach ($classes as $class) {
