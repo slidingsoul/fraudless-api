@@ -36,7 +36,7 @@ Route::middleware('auth.jwt')->put('/presence/{id}/location', [PresenceControlle
 Route::middleware('auth.jwt')->put('/presence/{id}/face', [PresenceController::class, 'updateFace']);
 Route::middleware('auth.jwt')->put('/presence/{id}/verified', [PresenceController::class, 'updateVerified']);
 Route::middleware('auth.jwt')->get('/sessions/class/{classId}', [SessionController::class, 'getByClass']);
-Route::middleware('auth.jwt')->get('/sessions/by-date', [SessionController::class, 'getByDate']);
+Route::middleware('auth.jwt')->get('/sessions/by-date', [SessionController::class, 'getSessionsByDate']);
 Route::middleware('auth.jwt')->get('/my-classes', [ClassController::class, 'getEnrolledClasses']);
 Route::middleware('auth.jwt')->put('/lookups', [LookupController::class, 'updateValue']);
 Route::middleware('auth.jwt')->get('/room', [RoomController::class, 'getRoomCode']);

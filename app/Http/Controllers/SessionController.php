@@ -46,25 +46,43 @@ class SessionController extends Controller
         ]);
     }
 
-    public function getByDate(Request $request)
+    public function getSessionsByDate(Request $request)
     {
         $date = $request->query('date', now()->toDateString());
         $studentId = auth()->guard('api')->user()->StudentId;
 
-        $sessions = Session::whereDate('SessionDate', $date)
-            ->with(['presences' => function ($query) use ($studentId) {
-                $query->where('StudentId', $studentId);
-            }])
-            ->get();
+        // Ambil semua sesi di tanggal tersebut
+        $sessions = Session::whereDate('SessionDate', $date)->get();
 
+        $result = [];
         foreach ($sessions as $session) {
+            // Ambil info kelas beserta dosen dan course
+            $class = ClassModel::leftJoin('lecturers', 'classes.LecturerId', '=', 'lecturers.LecturerId')
+                ->leftJoin('courses', function ($join) {
+                    $join->on('classes.CourseId', '=', 'courses.CourseId')
+                        ->on('classes.CourseCategory', '=', 'courses.CourseCategory');
+                })
+                ->select('classes.*', 'lecturers.LecturerFullName', 'courses.CourseName', 'courses.Credit')
+                ->where('classes.ClassId', $session->ClassId)
+                ->first();
+
+            // Ambil presences untuk student yang login
+            $presences = $session->presences()->where('StudentId', $studentId)->get();
+
+            // Ambil info shift
             $shift = DB::table('shifts')->where('Shift', $session->Shift)->first();
             $session->shift_start = $shift ? $shift->TimeStart : null;
             $session->shift_end = $shift ? $shift->TimeEnd : null;
+
+            $result[] = [
+                'class' => $class,
+                'session' => $session,
+                'presences' => $presences
+            ];
         }
 
         return response()->json([
-            'sessions' => $sessions
+            'data' => $result
         ]);
     }
 
