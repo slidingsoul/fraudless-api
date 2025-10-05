@@ -14,27 +14,34 @@ class PresenceSeeder extends Seeder
      */
     public function run(): void
     {
-        // Get all session IDs from class_sessions
         $sessions = DB::table('class_sessions')->get();
-        // Example student
-        $studentId = '2602078146';
-        $studentId = '2602154930';
-        $studentId = '2602173892';
-        $studentId = '2602163336';
+
+        $studentIds = [
+            '2602078146',
+            '2602154930', 
+            '2602173892',
+            '2602163336',
+        ];
 
         $presences = [];
+
         foreach ($sessions as $session) {
-            $presences[] = [
-                'SessionId' => $session->SessionId,
-                'StudentId' => $studentId,
-                'IsInCorrectLocation' => (bool)random_int(0, 1),
-                'IsCorrectFace' => (bool)random_int(0, 1),
-                'IsVerified' => (bool)random_int(0, 1),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ];
+            
+            // For each student, create a presence record for the current session
+            foreach ($studentIds as $studentId) {
+                $presences[] = [
+                    'SessionId' => $session->SessionId,
+                    'StudentId' => $studentId,
+                    'IsInCorrectLocation' => (bool)random_int(0, 1),
+                    'IsCorrectFace' => (bool)random_int(0, 1),
+                    'IsVerified' => (bool)random_int(0, 1),
+                    'created_at' => now(),
+                    'updated_at' => now(),
+                ];
+            }
         }
 
+        // 5. Lakukan single bulk insert
         DB::table('presence')->insert($presences);
     }
 }
