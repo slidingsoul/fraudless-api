@@ -14,7 +14,7 @@ class StudentSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('students')->insert(
+        DB::table('students')->insert([
             [
             'StudentId' => '2602078146',
             'StudentFullName' => 'DANIEL EBENEZER BUDIHARTO',
@@ -47,6 +47,6 @@ class StudentSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
             ]
-        );
+        ]);
     }
 }
