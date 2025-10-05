@@ -56,27 +56,27 @@ class EnrollmentSeeder extends Seeder
             # Richard Enrollment
             [
                 'EnrollmentId' => 7,
-                'StudentId' => '26020154930',
+                'StudentId' => '2602154930',
                 'ClassId' => 19,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'EnrollmentId' => 8,
-                'StudentId' => '26020154930',
+                'StudentId' => '2602154930',
                 'ClassId' => 20,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'EnrollmentId' => 9,
-                'StudentId' => '26020154930',
+                'StudentId' => '2602154930',
                 'ClassId' => 21,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
 
-            # Enrollment Agung
+            # Enrollment Davin
             [
                 'EnrollmentId' => 10,
                 'StudentId' => '2602163336',

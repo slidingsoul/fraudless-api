@@ -51,9 +51,12 @@ class SessionController extends Controller
     {
         $date = $request->query('date', now()->toDateString());
         $studentId = auth()->guard('api')->user()->StudentId;
+        $classIds = DB::table('enrollments')->where('StudentId', $studentId)->pluck('ClassId');
 
         // Ambil semua sesi di tanggal tersebut
-        $sessions = Session::whereDate('SessionDate', $date)->get();
+        $sessions = Session::whereIn('ClassId', $classIds)
+        ->whereDate('SessionDate', $date)
+        ->get();
 
         $result = [];
         foreach ($sessions as $session) {
@@ -92,8 +95,10 @@ class SessionController extends Controller
         $year = $request->query('year');
         $semester = $request->query('semester'); // "even" or "odd"
         $studentId = auth()->guard('api')->user()->StudentId;
+        $enrolledClassIds = DB::table('enrollments')->where('StudentId', $studentId)->pluck('ClassId');
 
-        Log::info('StudentId: ' . $studentId);
+        $enrolledClassIds = DB::table('enrollments')->where('StudentId', $studentId)->pluck('ClassId');
+
 
         $classQuery = ClassModel::query();
 
@@ -110,21 +115,21 @@ class SessionController extends Controller
 
         // Join dengan lecturers dan courses
         $classes = $classQuery
-            ->leftJoin('lecturers', 'classes.LecturerId', '=', 'lecturers.LecturerId')
-            ->leftJoin('courses', function ($join) {
-                $join->on('classes.CourseId', '=', 'courses.CourseId')
-                    ->on('classes.CourseCategory', '=', 'courses.CourseCategory');
-            })
-            ->select('classes.*', 'lecturers.LecturerFullName', 'courses.CourseName')
-            ->get();
+        ->leftJoin('lecturers', 'classes.LecturerId', '=', 'lecturers.LecturerId')
+        ->leftJoin('courses', function ($join) {
+            $join->on('classes.CourseId', '=', 'courses.CourseId')
+                ->on('classes.CourseCategory', '=', 'courses.CourseCategory');
+        })
+        ->select('classes.*', 'lecturers.LecturerFullName', 'courses.CourseName', 'courses.Credit')
+        ->get();
 
         $result = [];
         foreach ($classes as $class) {
             $sessions = Session::where('ClassId', $class->ClassId)
-                ->with(['presences' => function ($query) use ($studentId) {
-                    $query->where('StudentId', $studentId);
-                }])
-                ->get();
+            ->with(['presences' => function ($query) use ($studentId) {
+                $query->where('StudentId', $studentId);
+            }])
+            ->get();
 
             foreach ($sessions as $session) {
                 $shift = DB::table('shifts')->where('Shift', $session->Shift)->first();
