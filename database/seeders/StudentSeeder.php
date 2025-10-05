@@ -24,7 +24,7 @@ class StudentSeeder extends Seeder
             'updated_at' => now(),
             ],
             [
-            'StudentId' => '26020154930',
+            'StudentId' => '2602154930',
             'StudentFullName' => 'RICHARD WIJAYA HARIANTO',
             'Email' => 'richard.harianto@binus.ac.id',
             'StudentPassword' => '$2y$12$yb4jkqi3VrG6CL/JSIgsPOBO9xOQpTgw0/k2GtLFBtddOTPbdaKoW',

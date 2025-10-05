@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Session;
 use App\Models\ClassModel;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 
 class SessionController extends Controller
@@ -91,6 +92,8 @@ class SessionController extends Controller
         $year = $request->query('year');
         $semester = $request->query('semester'); // "even" or "odd"
         $studentId = auth()->guard('api')->user()->StudentId;
+
+        Log::info('StudentId: ' . $studentId);
 
         $classQuery = ClassModel::query();
 
