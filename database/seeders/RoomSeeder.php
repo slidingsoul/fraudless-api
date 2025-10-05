@@ -34,6 +34,12 @@ class RoomSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+            [
+                'RoomId' => '0212',
+                'RoomCode' => '0212b0mX1jv0YHk3gq7mX1y4e8f1Jz5L6n9Q',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }

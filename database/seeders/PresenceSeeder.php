@@ -18,6 +18,9 @@ class PresenceSeeder extends Seeder
         $sessions = DB::table('class_sessions')->get();
         // Example student
         $studentId = '2602078146';
+        $studentId = '2602154930';
+        $studentId = '2602173892';
+        $studentId = '2602163336';
 
         $presences = [];
         foreach ($sessions as $session) {

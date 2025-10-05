@@ -52,6 +52,52 @@ class EnrollmentSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
+
+            # Richard Enrollment
+            [
+                'EnrollmentId' => 7,
+                'StudentId' => '26020154930',
+                'ClassId' => 19,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'EnrollmentId' => 8,
+                'StudentId' => '26020154930',
+                'ClassId' => 20,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'EnrollmentId' => 9,
+                'StudentId' => '26020154930',
+                'ClassId' => 21,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+
+            # Enrollment Agung
+            [
+                'EnrollmentId' => 10,
+                'StudentId' => '2602163336',
+                'ClassId' => 19,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'EnrollmentId' => 11,
+                'StudentId' => '2602163336',
+                'ClassId' => 20,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'EnrollmentId' => 12,
+                'StudentId' => '2602163336',
+                'ClassId' => 21,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
         ]);
     }
 }
