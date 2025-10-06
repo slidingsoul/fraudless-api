@@ -97,10 +97,7 @@ class SessionController extends Controller
         $studentId = auth()->guard('api')->user()->StudentId;
         $enrolledClassIds = DB::table('enrollments')->where('StudentId', $studentId)->pluck('ClassId');
 
-        $enrolledClassIds = DB::table('enrollments')->where('StudentId', $studentId)->pluck('ClassId');
-
-
-        $classQuery = ClassModel::query();
+        $classQuery = ClassModel::whereIn('ClassId', $enrolledClassIds);
 
         if ($year) {
             $classQuery->where('ClassYear', $year);
